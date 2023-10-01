@@ -6,6 +6,7 @@ import PropsClass from "./components/2-PropsClass";
 import StateHook from "./components/4-StateHook";
 import ListsAndConditionals from "./components/5-RefHookList&Conditional";
 import FragmentsPortals from "./components/6-Fragments&Portals";
+import EffectHook from "./components/7-EffectHook";
 
 function App() {
   const [text, setText] = useState('Hurricane'); 
@@ -24,6 +25,7 @@ function App() {
       <StateHook liftStateUp={liftStateUp}/>
       <ListsAndConditionals />
       <FragmentsPortals />
+      <EffectHook />
     </div>
   );
 }
