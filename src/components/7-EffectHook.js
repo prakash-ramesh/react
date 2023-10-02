@@ -26,6 +26,7 @@ const EffectHook = () => {
         Counter {counter < 11 ? "Running: " : "Stopped."}{" "}
         {counter < 11 && counter}
       </Fragment>
+      <p className="brief">Please <b>pass specific properties instead of the entire object as a dependency</b> to the useEffect hook dependency array</p>
     </section>
   );
 };
