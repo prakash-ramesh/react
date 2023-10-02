@@ -19,6 +19,10 @@ p, label {
   font-style: italic;
 }
 
+label {
+  color: blueviolet;
+}
+
 .concept {
   color: blueviolet;
   font-style: normal;

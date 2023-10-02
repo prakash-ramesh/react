@@ -1,37 +1,118 @@
-import React, { useReducer } from "react";
-
-const studentReducer = (state, action) => {
-  if (action.type === "SET_NAME") {
-    return {
-      name: action.name,
-    };
-  }
-  return {
-    name: "Plese set your name !!!",
-  };
-};
+import React, { useReducer, useRef } from "react";
 
 const ReducerHook = () => {
-  const [stuState, dispatchStudent] = useReducer(studentReducer, { name: "Plese set your name !!!" });
+  const [stuState, dispatchStudent] = useReducer(studentReducer, initialState);
+  const nameRef = useRef();
+  const ageRef = useRef();
+  const subjectRef = useRef();
 
-  const nameChangeHandler = (event) => {
+  const dispatchHandler = (type, ref) => {
     dispatchStudent({
-        type: 'SET_NAME',
-        name: event.target.value
+      type,
+      ref,
     });
-  }
+  };
+
+  const dispatchStudentHandler = () => {
+    dispatchStudent({
+      type: 'SET_ALL',
+      age: ageRef.current.value,
+      name: nameRef.current.value,
+      favSubject: subjectRef.current.value
+    });
+  };
 
   return (
     <section className="component">
       <h6>C7: useReducer</h6>
-      <label htmlFor="UseReducer">Enter Name: </label>
-      <input id="UseReducer" type="text" placeholder={stuState.name} onChange={nameChangeHandler}/>
+      <div>
+        <label htmlFor="stuName">Enter Name: </label>
+        <input
+          id="stuName"
+          type="text"
+          placeholder={stuState.name}
+          ref={nameRef}
+        />
+        <button
+          onClick={(event) => dispatchHandler("SET_NAME", nameRef)}
+        >
+          Dispatch Name
+        </button>
+      </div>
+      <div>
+        <label htmlFor="stuAge">Enter Age: </label>
+        <input
+          id="stuAge"
+          type="text"
+          placeholder={stuState.age}
+          ref={ageRef}
+        />
+        <button onClick={(event) => dispatchHandler("SET_AGE", ageRef)}>
+          Dispatch Age
+        </button>
+      </div>
+      <div>
+        <label htmlFor="stuSubject">Enter Subject: </label>
+        <input
+          id="stuSubject"
+          type="text"
+          placeholder={stuState.favSubject}
+          ref={subjectRef}
+        />
+        <button
+          onClick={(event) =>
+            dispatchHandler("SET_FAV_SUBJECT", subjectRef)
+          }
+        >
+          Dispatch Subject
+        </button>
+      </div>
+      <button onClick={dispatchStudentHandler}>Submit</button>
       <p>
-        Input Text: {stuState.name}
+        <b>Name:</b> {stuState.name} <b>Age:</b> {stuState.age} <b>Subject:</b> {stuState.favSubject}
       </p>
-      <p className="brief">useREducer() For complex object - state with multiple related properties, for simple independant properties useState()</p>
+      <p className="brief">
+        useReducer() For complex object - state with multiple related
+        properties, for simple independant properties useState()
+      </p>
     </section>
   );
 };
 
 export default ReducerHook;
+
+const initialState = {
+  name: "Set your name !!!",
+  age: "Set your age !!!",
+  favSubject: "Favourite Subject",
+};
+
+const studentReducer = (state, action) => {
+  if (action.type === "SET_NAME") {
+    return {
+      ...state,
+      name: action.ref.current.value,
+    };
+  }
+  if (action.type === "SET_AGE") {
+    return {
+      ...state,
+      age: action.ref.current.value,
+    };
+  }
+  if (action.type === "SET_FAV_SUBJECT") {
+    return {
+      ...state,
+      favSubject: action.ref.current.value,
+    };
+  }
+  if (action.type === "SET_ALL") {
+    return {
+      ...state,
+      favSubject: action.favSubject,
+      name: action.name,
+      age: action.age
+    };
+  }
+  return initialState;
+};
