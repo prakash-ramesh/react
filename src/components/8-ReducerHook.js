@@ -15,16 +15,16 @@ const ReducerHook = () => {
 
   const dispatchStudentHandler = () => {
     dispatchStudent({
-      type: 'SET_ALL',
+      type: "SET_ALL",
       age: ageRef.current.value,
       name: nameRef.current.value,
-      favSubject: subjectRef.current.value
+      favSubject: subjectRef.current.value,
     });
   };
 
   return (
     <section className="component">
-      <h6>C7: useReducer</h6>
+      <h6>C8: useReducer</h6>
       <div>
         <label htmlFor="stuName">Enter Name: </label>
         <input
@@ -33,9 +33,7 @@ const ReducerHook = () => {
           placeholder={stuState.name}
           ref={nameRef}
         />
-        <button
-          onClick={(event) => dispatchHandler("SET_NAME", nameRef)}
-        >
+        <button onClick={(event) => dispatchHandler("SET_NAME", nameRef)}>
           Dispatch Name
         </button>
       </div>
@@ -59,17 +57,14 @@ const ReducerHook = () => {
           placeholder={stuState.favSubject}
           ref={subjectRef}
         />
-        <button
-          onClick={(event) =>
-            dispatchHandler("SET_FAV_SUBJECT", subjectRef)
-          }
-        >
+        <button onClick={(event) => dispatchHandler("SET_FAV_SUBJECT", subjectRef)}>
           Dispatch Subject
         </button>
       </div>
       <button onClick={dispatchStudentHandler}>Submit</button>
       <p>
-        <b>Name:</b> {stuState.name} <b>Age:</b> {stuState.age} <b>Subject:</b> {stuState.favSubject}
+        <b>Name:</b> {stuState.name} <b>Age:</b> {stuState.age} <b>Subject:</b>{" "}
+        {stuState.favSubject}
       </p>
       <p className="brief">
         useReducer() For complex object - state with multiple related
@@ -111,7 +106,7 @@ const studentReducer = (state, action) => {
       ...state,
       favSubject: action.favSubject,
       name: action.name,
-      age: action.age
+      age: action.age,
     };
   }
   return initialState;

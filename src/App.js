@@ -8,6 +8,7 @@ import ListsAndConditionals from "./components/5-RefHookList&Conditional";
 import FragmentsPortals from "./components/6-Fragments&Portals";
 import EffectHook from "./components/7-EffectHook";
 import ReducerHook from "./components/8-ReducerHook";
+import ContextProvider from "./components/9-Context";
 
 function App() {
   const [text, setText] = useState("Hurricane");
@@ -28,6 +29,7 @@ function App() {
       <FragmentsPortals />
       <EffectHook />
       <ReducerHook />
+      <ContextProvider />
     </div>
   );
 }
