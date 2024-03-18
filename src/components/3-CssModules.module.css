@@ -1,5 +1,7 @@
 .paragraph {
   color: brown;
+  font-size: 1.25rem;
+  font-weight: 300;
 }
 
 .concept {

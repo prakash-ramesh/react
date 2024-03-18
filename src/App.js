@@ -12,25 +12,28 @@ import ContextProvider from "./components/9-Context";
 
 function App() {
   const [text, setText] = useState("Hurricane");
-  //defing text as normal variable will propgate the value to C1 and C2 only first time, for subsequent update from C4 it has be converted to state variable
+  /* defing text as normal variable will propgate the value to C1 and C2 only first time,
+     for subsequent update from C4 it has be converted to state variable */
 
   const liftStateUp = (userText) => {
     setText(userText);
   };
 
   return (
-    <div className="App">
-      <h1>React Refresher</h1>
-      <Props name={text} className="component" />
-      <PropsClass name={text} />
-      <CssModules />
-      <StateHook liftStateUp={liftStateUp} />
-      <ListsAndConditionals />
-      <FragmentsPortals />
-      <EffectHook />
-      <ReducerHook />
-      <ContextProvider />
-    </div>
+    <main className="container">
+      <section className="row">
+        <h1 className="text-center">React Refresher</h1>
+        <Props name={text} className="component" />
+        <PropsClass name={text} />
+        <CssModules />
+        <StateHook liftStateUp={liftStateUp} />
+        <ListsAndConditionals />
+        <FragmentsPortals />
+        <EffectHook />
+        <ReducerHook />
+        <ContextProvider />
+      </section>
+    </main>
   );
 }
 

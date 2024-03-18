@@ -1,4 +1,7 @@
 import React, { useState, useRef } from "react";
+import Wrapper from "./common/D-Wrapper";
+import txt from "../assets/4.txt";
+import Button from "./common/B-Button";
 
 const ListsAndConditionals = () => {
   const phrase = useRef();
@@ -18,11 +21,11 @@ const ListsAndConditionals = () => {
   // phrase.current.value = '';
 
   return (
-    <section className="component">
+    <Wrapper title="Functional Component" fileName={txt}>
       <h6>C5: Ref Hook, Lists And Conditionals</h6>
 
       <label htmlFor="phrase">Enter Phrases: </label>
-      <input id="phrase" type="text" ref={phrase} />
+      <input id="phrase" type="text" ref={phrase} className="form-control form-control-sm w-25 m-1 d-inline-block"/>
       {/* 
           ===> <input id="2way" type="text" value={phrase} /> <===
           You provided a `value` prop to a form field without an `onChange` handler. 
@@ -30,8 +33,8 @@ const ListsAndConditionals = () => {
 
           Soln: useRef()
           */}
-      <button onClick={addPhraseHandler}>Add Phrase</button>
-      <button onClick={toggleShow} disabled={!phrases.length}>{show ? "Hide" : "Show"} Phrases</button>
+      <Button onClick={addPhraseHandler}>Add Phrase</Button>
+      <Button onClick={toggleShow} disabled={!phrases.length}>{show ? "Hide" : "Show"} Phrases</Button>
 
       {show && (
         <ul>
@@ -43,7 +46,7 @@ const ListsAndConditionals = () => {
         useRef() -- Caution: restting field by useRef Variable will lead to unintended behavior (uncontrolled component)<br/>
         try resetting phrase.current.value = '' in addPhraseHandler or in the fn. , see the value in the list goes empty 
       </p>
-    </section>
+    </Wrapper>
   );
 };
 
