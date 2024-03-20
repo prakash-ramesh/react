@@ -6,9 +6,9 @@ const Wrapper = (props) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <section className="component d-flex flex-column">
+    <section className="component d-flex wrapper">
       <article className="text-center">{props.children}</article>
-      <aside className="d-flex justify-content-end">
+      <aside className="align-self-center">
         <Button onClick={() => setShowModal((prevState) => !prevState)} className='btn btn-outline-info m-1 btn-sm'>
           Show Code
         </Button>

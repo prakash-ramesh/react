@@ -1,6 +1,5 @@
 import React, { Fragment, useContext, useState } from "react";
-import Wrapper from "./common/D-Wrapper";
-import txt from "../assets/9.txt";
+
 import Button from "./common/B-Button";
 
 const CounterContext = React.createContext({ counter: 0 });
@@ -13,7 +12,7 @@ const ContextProvider = () => {
   }
 
   return (
-    <Wrapper title="Context Provider, Consumer and Hook" fileName={txt}>
+    <section className="component">
       <h6>C9: Context Provider, Consumer and useContext</h6>
       <CounterContext.Provider value={{ counter: counter, reset: reset }}>
         <p className="lead">Context Provider - I am Top Level Parent Component!!!</p>
@@ -24,7 +23,7 @@ const ContextProvider = () => {
         <ContextConsumer />
         <ContextConsumer1 />
       </CounterContext.Provider>
-    </Wrapper>
+    </section>
   );
 };
 

@@ -4,4 +4,51 @@ $body-bg: #282c34;
 $body-color: white;
 
 // Import Bootstrap and its default variables
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
+
+h6 {
+    color: $info;
+}
+
+p,
+label {
+    font-style: italic;
+}
+
+label {
+    color: $primary;
+}
+
+.concept {
+    color: $primary;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.component {
+    border: 1px solid $secondary;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.brief {
+    font-size: small;
+}
+
+@include media-breakpoint-up(lg) {
+    .input {
+        display: inline-block !important;
+        width: 40% !important;
+    }
+
+    .wrapper article {
+        width: 90%;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .wrapper {
+        flex-direction: column;
+    }
+}

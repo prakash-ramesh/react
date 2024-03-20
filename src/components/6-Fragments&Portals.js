@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Wrapper from "./common/D-Wrapper";
-import txt from "../assets/4.txt";
+import txt from "../assets/6.txt";
 
 import Button from "./common/B-Button";
 import Modal from "./common/A-Modal";
@@ -9,7 +9,7 @@ const FragmentsPortals = (props) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <Wrapper title="Functional Component" fileName={txt}>
+    <Wrapper title="Fragments and Portals" fileName={txt}>
       <h6>C6: Fragments and Portals</h6>
       <Button onClick={() => setShowModal(prevState => !prevState)}>Show Modal</Button>
       { showModal && 

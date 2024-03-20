@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+import Button from "./common/B-Button";
+import Input from "./common/E-Input";
+
 const StateHook = (props) => {
   const [name, setName] = useState('');
 
@@ -11,12 +14,12 @@ const StateHook = (props) => {
     <section className="component">
       <h6>C4: useState - Two way Data Binding</h6>
       <label htmlFor="2way">Enter Text: </label>
-      <input id="2way" type="text" value={name} onChange={nameChangeHandler}/>
+      <Input id="2way" type="text" value={name} onChange={nameChangeHandler} />
       <p>
         Input Text: {name}
       </p>
-      <button onClick={() => setName('')}>Reset Text</button>
-      <button onClick={() => props.liftStateUp(name)}>Update Text in Component 1 & 2</button>
+      <Button onClick={() => setName('')}>Reset Text</Button>
+      <Button onClick={() => props.liftStateUp(name)}>Update Text in Component 1 & 2</Button>
     </section>
   );
 };

@@ -9,6 +9,7 @@ import FragmentsPortals from "./components/6-Fragments&Portals";
 import EffectHook from "./components/7-EffectHook";
 import ReducerHook from "./components/8-ReducerHook";
 import ContextProvider from "./components/9-Context";
+import ForwardRef from "./components/10-ImperativeHandle-ForwardRef";
 
 function App() {
   const [text, setText] = useState("Hurricane");
@@ -32,6 +33,7 @@ function App() {
         <EffectHook />
         <ReducerHook />
         <ContextProvider />
+        <ForwardRef />
       </section>
     </main>
   );

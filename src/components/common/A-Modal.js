@@ -46,7 +46,7 @@ const Modal = (props) => {
           {props.code}
         </div>
         <footer className={classes.actions}>
-          <Button onClick={props.onConfirm}>Okay</Button>
+          <Button onClick={props.onConfirm}>Close</Button>
         </footer>
       </Card>
     );

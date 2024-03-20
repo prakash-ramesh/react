@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Wrapper from "./common/D-Wrapper";
 import txt from "../assets/4.txt";
 import Button from "./common/B-Button";
+import Input from "./common/E-Input";
 
 const StateHook = (props) => {
   const [name, setName] = useState('');
@@ -11,10 +12,10 @@ const StateHook = (props) => {
   }
 
   return (
-    <Wrapper title="Functional Component" fileName={txt}>
+    <Wrapper title="State Hook" fileName={txt}>
       <h6>C4: useState - Two way Data Binding</h6>
       <label htmlFor="2way">Enter Text: </label>
-      <input id="2way" type="text" value={name} onChange={nameChangeHandler} className="form-control form-control-sm w-25 m-1 d-inline-block"/>
+      <Input id="2way" type="text" value={name} onChange={nameChangeHandler} />
       <p>
         Input Text: {name}
       </p>

@@ -1,0 +1,15 @@
+ return (<React.Fragment>
+      {ReactDOM.createPortal(
+        <Backdrop onConfirm={() => props.showModal(prevState => !prevState)} />,
+        document.getElementById("backdrop-root")
+      )}
+      {ReactDOM.createPortal(
+        <ModalOverlay
+          title={props.title}
+          content={props.content}
+          code={code}
+          onConfirm={() => props.showModal(prevState => !prevState)}
+        />,
+        document.getElementById("overlay-root")
+      )}
+    </React.Fragment>)
