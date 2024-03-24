@@ -1,0 +1,56 @@
+import { Component, Fragment } from "react";
+import Button from "./common/B-Button";
+
+class EffectClass extends Component {
+    constructor() {
+        super();
+        this.state = {
+            counter: 0
+        }
+    }
+
+    // useEffect(() => {...}, [])
+    componentDidMount() {
+        this.setState({...this.state, counter: 11})
+    }  
+
+    // useEffect(() => {...}, [counter])
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.counter === 11 && this.state.counter === 0) {
+            console.log('Set Interval');
+
+            this.interval = setInterval(() => {
+                this.setState({...this.state, counter: this.state.counter + 1})
+            }, 1000);  
+        }
+
+        if(this.state.counter === 10) {
+            clearInterval(this.interval);
+            this.setState({...this.state, counter: 11});
+        }
+    }
+
+    // useEffect(() => {... return() {}}, [])
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    } 
+    
+    render() {
+        const startCounter = () => {
+            this.setState({...this.state, counter: 0});
+        }
+        
+        return <section className="component">
+        <h6>C7a: Component DidMount, DidUpdate and WillUnmount</h6>
+        <Fragment>
+          <Button disabled={this.state.counter < 11} onClick={startCounter}>
+            Start Counter
+          </Button>
+          Counter {this.state.counter < 11 ? "Running: " : "Stopped."}{" "}
+          {this.state.counter < 11 && this.state.counter}
+        </Fragment>
+      </section>
+    }
+}
+
+export default EffectClass;

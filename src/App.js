@@ -10,6 +10,10 @@ import EffectHook from "./components/7-EffectHook";
 import ReducerHook from "./components/8-ReducerHook";
 import ContextProvider from "./components/9-Context";
 import ForwardRef from "./components/10-ImperativeHandle-ForwardRef";
+import Callback from "./components/11-CallbackHook";
+import StateClass from "./components/4a-StateClass";
+import EffectClass from "./components/7a-EffectClass";
+import ErrorBoundaryComponent, { ErrorBoundary } from "./components/12-ErrorBoundary";
 
 function App() {
   const [text, setText] = useState("Hurricane");
@@ -28,12 +32,18 @@ function App() {
         <PropsClass name={text} />
         <CssModules />
         <StateHook liftStateUp={liftStateUp} />
+        <StateClass liftStateUp={liftStateUp} />
         <ListsAndConditionals />
         <FragmentsPortals />
         <EffectHook />
+        <EffectClass />
         <ReducerHook />
         <ContextProvider />
         <ForwardRef />
+        <Callback />
+        <ErrorBoundary>
+          <ErrorBoundaryComponent/>
+        </ErrorBoundary>
       </section>
     </main>
   );

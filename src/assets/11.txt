@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo, memo } from "react";
 
 function addNum(x, y) {
-  // console.log("calculating result...")
+  console.log("calculating result...")
   return x+y;
 }
 
@@ -20,10 +20,9 @@ const FileViewer = memo(({ fileName , x = 1, y = 2}) => {
     getFile();
   }, [getFile]);
 
-  // eslint-disable-next-line no-unused-vars
   const add = useMemo(() => addNum(x, y), [x, y]);
 
-  // console.log(add);
+  console.log(add);
 
   return (
     <pre>

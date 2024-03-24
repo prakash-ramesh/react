@@ -1,0 +1,41 @@
+import { Component, Fragment, useState } from "react";
+import Button from "./common/B-Button";
+import Wrapper from "./common/D-Wrapper";
+import txt from "../assets/12.txt";
+
+export class ErrorBoundary extends Component {
+    constructor() {
+        super();
+        this.state = {hasError: false};
+    }
+
+    componentDidCatch() {
+        this.setState({hasError: true});
+    }
+
+    render() {
+        return <Fragment>
+            {this.state.hasError && <h1 className="concept">Something went Wrong !!!</h1>}
+            {!this.state.hasError && this.props.children} 
+        </Fragment>        
+    }
+}
+
+const ErrorBoundaryComponent = () => {
+    const [hasError, setHasError] = useState(false);
+
+    if(hasError) {
+        throw new Error('Custom Error.');
+    }
+
+    return <Wrapper title="Error Boundary" fileName={txt}>
+        <h6>C12: Error Boundary</h6>
+        <Button onClick={() => setHasError(true)}>Simulate Error</Button>
+        <p className="brief"><span className="concept">Error boundaries do not catch errors for:</span> Event handlers, Asynchronous code (e.g. setTimeout or requestAnimationFrame callbacks)<br/>
+                Server-side rendering, Errors thrown in the error boundary itself (rather than its children)<br/>
+        </p>
+    </Wrapper>
+}
+
+
+export default ErrorBoundaryComponent;
