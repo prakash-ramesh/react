@@ -36,6 +36,12 @@ label {
     font-size: small;
 }
 
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 5px;
+}
+
 @include media-breakpoint-up(lg) {
     .input {
         display: inline-block !important;

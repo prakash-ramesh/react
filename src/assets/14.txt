@@ -1,0 +1,61 @@
+import React from "react";
+import useFetch from "./13-CustomFetchHook";
+import Button from "./common/B-Button";
+
+const Http = () => {
+  const { isLoading, error, data, setData, sendRequest } = useFetch(
+    "https://dummyjson.com/products?limit=10&skip=1",
+    "GET"
+  );
+
+  const loader = (
+    <div className="spinner-border text-primary" role="status">
+      <span className="sr-only">Loading...</span>
+    </div>
+  );
+
+  const errorMsg = <h4 className="concept">Something went wrong!!!</h4>;
+
+  const deleteHandler = (id) => {
+    let data = null;
+
+    sendRequest(`https://dummyjson.com/products/${id}`, "DELETE").then(() => {
+        setData((prevData) => {
+            data = structuredClone(prevData);
+            data.products = data.products.filter(p => p.id !== id);
+            return data;
+        });
+    }).catch(() => {
+        // ignored
+    })
+  }
+
+  return (
+    <section className="component">
+      <h6>C14: HTTP</h6>
+      {isLoading && loader}
+      {error && errorMsg}
+      <figure className="card-container">
+        {data &&
+          data.products?.map((product) => {
+            return (
+              <div className="card" key={product.id}>
+                <img
+                  src={product.thumbnail}
+                  className="card-img-top"
+                  alt={product.title}
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{product.title}</h5>
+                  <p className="card-text">{product.description}</p>
+                  <Button onClick={() => deleteHandler(product.id)}>Delete</Button>
+                </div>
+              </div>
+            );
+          })}
+      </figure>
+    </section>
+  );
+};
+
+export default Http;

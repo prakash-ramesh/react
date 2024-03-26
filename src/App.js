@@ -14,6 +14,8 @@ import Callback from "./components/11-CallbackHook";
 import StateClass from "./components/4a-StateClass";
 import EffectClass from "./components/7a-EffectClass";
 import ErrorBoundaryComponent, { ErrorBoundary } from "./components/12-ErrorBoundary";
+import Http from "./components/14-Http";
+import { CustomHookComponent } from "./components/13-CustomFetchHook";
 
 function App() {
   const [text, setText] = useState("Hurricane");
@@ -44,6 +46,8 @@ function App() {
         <ErrorBoundary>
           <ErrorBoundaryComponent/>
         </ErrorBoundary>
+        <CustomHookComponent/>
+        <Http />
       </section>
     </main>
   );
