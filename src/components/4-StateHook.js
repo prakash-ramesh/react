@@ -14,8 +14,7 @@ const StateHook = (props) => {
   return (
     <Wrapper title="State Hook" fileName={txt}>
       <h6>C4: useState - Two way Data Binding</h6>
-      <label htmlFor="2way">Enter Text: </label>
-      <Input id="2way" type="text" value={name} onChange={nameChangeHandler} />
+      <Input label="Enter Text: " id="2way" type="text" value={name} onChange={nameChangeHandler} />
       <p>
         Input Text: {name}
       </p>

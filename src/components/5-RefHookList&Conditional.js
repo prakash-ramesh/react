@@ -25,8 +25,7 @@ const ListsAndConditionals = () => {
     <Wrapper title="Ref Hook, Lists And Conditionals" fileName={txt}>
       <h6>C5: Ref Hook, Lists And Conditionals</h6>
 
-      <label htmlFor="phrase">Enter Phrases: </label>
-      <Input id="phrase" type="text" ref={phrase} />
+      <Input label="Enter Phrases: " id="phrase" type="text" ref={phrase} />
       {/* 
           ===> <input id="2way" type="text" value={phrase} /> <===
           You provided a `value` prop to a form field without an `onChange` handler. 

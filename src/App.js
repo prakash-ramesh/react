@@ -16,6 +16,7 @@ import EffectClass from "./components/7a-EffectClass";
 import ErrorBoundaryComponent, { ErrorBoundary } from "./components/12-ErrorBoundary";
 import Http from "./components/14-Http";
 import { CustomHookComponent } from "./components/13-CustomFetchHook";
+import Form from "./components/15-Forms";
 
 function App() {
   const [text, setText] = useState("Hurricane");
@@ -48,6 +49,7 @@ function App() {
         </ErrorBoundary>
         <CustomHookComponent/>
         <Http />
+        <Form />
       </section>
     </main>
   );

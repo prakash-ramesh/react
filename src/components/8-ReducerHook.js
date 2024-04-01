@@ -17,7 +17,9 @@ const ReducerHook = () => {
     });
   };
 
-  const dispatchStudentHandler = () => {
+  const dispatchStudentHandler = (event) => {
+    event.preventDefault();
+
     dispatchStudent({
       type: "SET_ALL",
       age: ageRef.current.value,
@@ -29,38 +31,41 @@ const ReducerHook = () => {
   return (
     <Wrapper title="Reducer Hook" fileName={txt}>
       <h6>C8: useReducer</h6>
-      <form className="form-inline">
+      <form className="form-inline" noValidate>
         <div className="form-group">
-          <label htmlFor="stuName">Enter Name: </label>
           <Input
+            label="Enter Name: "
             id="stuName"
             type="text"
             placeholder={stuState.name}
             ref={nameRef}
+            required
           />
           <Button onClick={(event) => dispatchHandler("SET_NAME", nameRef)}>
             Dispatch Name
           </Button>
         </div>
         <div className="form-group">
-          <label htmlFor="stuAge">Enter Age: </label>
           <Input
+            label="Enter Age: "
             id="stuAge"
             type="text"
             placeholder={stuState.age}
             ref={ageRef}
+            required
           />
           <Button onClick={(event) => dispatchHandler("SET_AGE", ageRef)}>
             Dispatch Age
           </Button>
         </div>
         <div className="form-group">
-          <label htmlFor="stuSubject">Enter Subject: </label>
           <Input
+            label="Enter Subject: "
             id="stuSubject"
             type="text"
             placeholder={stuState.favSubject}
             ref={subjectRef}
+            required
           />
           <Button
             onClick={(event) => dispatchHandler("SET_FAV_SUBJECT", subjectRef)}

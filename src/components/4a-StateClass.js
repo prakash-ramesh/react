@@ -22,9 +22,8 @@ class StateClass extends Component {
     render() {
         return (
             <Wrapper title="State - Class based Component" fileName={txt}>
-              <h6>C4a: State Handling - Class based Component</h6>
-              <label htmlFor="2way">Enter Text: </label>
-              <Input id="2way" type="text" value={this.state.name} onChange={this.nameChangeHandler.bind(this)} />
+              <h6>C4a: State Handling - Class based Component</h6>              
+              <Input label="Enter Text: " id="2way" type="text" value={this.state.name} onChange={this.nameChangeHandler.bind(this)} />
               <p>
                 Input Text: {this.state.name}
               </p>
