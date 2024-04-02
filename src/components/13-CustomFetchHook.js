@@ -9,7 +9,6 @@ const useFetch = (url, method, body) => {
     const [data, setData] = useState();
 
     const sendRequest = useCallback(async (url, method, body) => {
-        console.log('Custom Hook - Send Request');
         setIsLoading(true);
 
         let response = null;
@@ -29,7 +28,6 @@ const useFetch = (url, method, body) => {
             }
 
             data = await response.json();
-            console.log(data);
         } catch (error) {
             setError({message: error.message});
         }
@@ -47,8 +45,6 @@ const useFetch = (url, method, body) => {
     }, []);
 
     useEffect(() => {
-        console.log('Custom Hook - USE EFFECT');
-
         async function invoke() {             
             setData(await sendRequest(url, method, body));            
         }

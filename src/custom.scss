@@ -51,6 +51,10 @@ label {
     .wrapper article {
         width: 90%;
     }
+
+    .chkRadio {
+        display: inline;
+    }
 }
 
 @include media-breakpoint-down(lg) {
