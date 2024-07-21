@@ -1,4 +1,4 @@
-# Practice React - Learn from https://www.udemy.com/course/react-the-complete-guide-incl-redux
+# Practice React - Learnt from https://www.udemy.com/course/react-the-complete-guide-incl-redux
 
 # Getting Started with Create React App
 
